@@ -88,7 +88,7 @@ app.get('/logout', function (req, res) {
   res.redirect('/');
 });
 
-// 認証済みか確認
+// 認証済みか確認します
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }
   res.redirect('/login');
