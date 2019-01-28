@@ -12,6 +12,11 @@ const Fixture = loader.database.define('fixtures', {
     type: Sequelize.STRING,
     allowNull: false
   },
+  resultSain:{
+    type: Sequelize.INTEGER,
+    allowNull: false,
+    defaultValue: 0
+  },
   homeScore: {//
     type: Sequelize.INTEGER,
     allowNull: false
