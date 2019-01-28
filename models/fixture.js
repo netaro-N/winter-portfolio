@@ -9,24 +9,21 @@ const Fixture = loader.database.define('fixtures', {
     autoIncrement:true,
     allowNull: false
   },
-  fixtureDate: {//20190129
+  fixtureDate: {//19/09/2018 21:00
     type: Sequelize.DATE,
-  },
-  fixtureName: {//madrid-vs-atmadrid
-    type: Sequelize.STRING,
-    allowNull: false
+    allowNull:false
   },
   fixtureDone:{//先の試合(0) or 次の（今の）試合(1) or 終了した試合(2)
     type: Sequelize.INTEGER,
     allowNull: false,
     defaultValue: 0
   },
-  homeScore: {//
-    type: Sequelize.INTEGER,
+  homeTeam: {//レアル・マドリード
+    type: Sequelize.TEXT,
     allowNull: false
   },
-  awayScore: {
-    type: Sequelize.INTEGER,
+  awayTeam: {//ヘタフェ
+    type: Sequelize.TEXT,
     allowNull: false
   }
 }, {

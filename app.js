@@ -1,5 +1,7 @@
 'use strict';
 
+/**
+ * デバッグ処理
 const debug = require('debug');
 const debugInfo = debug('module:info');
 setInterval(() => {
@@ -9,6 +11,7 @@ const debugError = debug('module:error');
 setInterval(() => {
   debugError('some error.');
 }, 1000);
+ */
 
 var createError = require('http-errors');
 var express = require('express');
@@ -18,6 +21,9 @@ var logger = require('morgan');
 var helmet = require('helmet');
 var session = require('express-session');
 var passport = require('passport');
+
+//モデルの読み込み
+
 var GitHubStrategy = require('passport-github2').Strategy;
 var TwitterStrategy = require('passport-twitter').Strategy;
 

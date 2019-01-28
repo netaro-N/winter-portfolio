@@ -4,7 +4,7 @@ const Sequelize = loader.Sequelize;
 
 const Comment = loader.database.define('comments', {
   fixtureId: {
-    type:Sequelize.UUID,
+    type:Sequelize.INTEGER,
     primaryKey: true,
     allowNull: false
   },
