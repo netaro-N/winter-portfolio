@@ -9,8 +9,14 @@ block content
       a(href="/logout") #{user.username}をLogout
     else
       a(href="/login") Login
-  div#block.block
-  button#scaling-button 拡大縮小
-  button#moving-button 移動
-  button#tumbling-button 回転
-  script(src="/javascripts/bundle.js")
+  div
+    if user
+      h2 コメントする
+      form(method="post" action="/comments")
+        div
+          textarea(name="content" rows="4")
+        button(type="submit") 投稿
+    else
+      a(href="http:/login") ログインしてコメントしよう！
+  div
+    h2 投稿一覧
