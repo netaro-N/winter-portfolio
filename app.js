@@ -23,6 +23,21 @@ var session = require('express-session');
 var passport = require('passport');
 
 //モデルの読み込み
+var Fixture = require('./models/fixture');
+var Result = require('./models/result');
+var Comment = require('./models/comment');
+var User = require('./models/user');
+
+Fixture.sync().then(() => {
+  Result.belongsTo(Fixture, {foreignKey: 'fixtureId'});
+  Result.sync();
+  Comment.belongsTo(Fixture, {foreignKey: 'fixtureId', targetKey: 'fixtureId'});
+  User.sync().then(() => {
+    Comment.belongsTo(User, {foreignKey: 'userId', targetKey: 'userId'});
+    Comment.belongsTo(User, {foreignKey: 'userProvider', targetKey: 'userProvider'});
+    Comment.sync();
+  });
+});
 
 var GitHubStrategy = require('passport-github2').Strategy;
 var TwitterStrategy = require('passport-twitter').Strategy;
@@ -50,7 +65,13 @@ passport.use(new GitHubStrategy({
 // 認証後アクション
   function (accessToken, refreshToken, profile, done) {
     process.nextTick(function () {
-      return done(null, profile);
+      User.upsert({
+        userId: profile.id,
+        userProvider: profile.provider,
+        username: profile.username
+      }).then(() => {
+        done(null, profile);
+      });
     });
   }
 ));
@@ -64,7 +85,13 @@ passport.use(new TwitterStrategy({
 // 認証後アクション
 function (accessToken, refreshToken, profile, done) {
   process.nextTick(function () {
-    return done(null, profile);
+    User.upsert({
+      userId: profile.id,
+      userProvider: profile.provider,
+      username: profile.username
+    }).then(() => {
+      done(null, profile);
+    });
   });
 }
 ));
