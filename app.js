@@ -99,6 +99,7 @@ function (accessToken, refreshToken, profile, done) {
 var indexRouter = require('./routes/index');
 var loginRouter = require('./routes/login');
 var logoutRouter = require('./routes/logout');
+var commentsRouter = require('./routes/comments');
 
 var app = express();
 app.use(helmet());
@@ -120,6 +121,7 @@ app.use(passport.session());
 app.use('/', indexRouter);
 app.use('/login',loginRouter);
 app.use('/logout', logoutRouter);
+app.use('/comments', commentsRouter);
 
 // GitHub認証のハンドラ
 app.get('/auth/github',
