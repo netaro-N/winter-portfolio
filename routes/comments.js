@@ -5,7 +5,7 @@ const authenticationEnsurer = require('./authentication-ensurer');
 
 router.post('/', authenticationEnsurer, (req, res, next) => {
   console.log(req.body); // コメントを保存する実装をする
-  res.redirect('/index');
+  res.redirect('/');
 });
 
 module.exports = router;
