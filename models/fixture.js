@@ -17,7 +17,7 @@ const Fixture = loader.database.define('fixtures', {
     type: Sequelize.TEXT,
     allowNull: false
   },
-  fixtureDone:{//先の試合(0) or 次の（今の）試合(1) or 終了した試合(2)
+  fixtureDone:{//先の試合(0) or 表示させたい（試合開始2時間前〜次試合開始２時間前まで）試合(1) or 終了した試合(2)
     type: Sequelize.INTEGER,
     allowNull: false,
     defaultValue: 0

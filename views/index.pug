@@ -10,6 +10,10 @@ block content
     else
       a(href="/login") Login
   div
+  //-
+   ここに試合データ。index.jsでfixtureDone=1を取得する
+   #{homeTeam} #{homeScore} - #{awayScore} #{awayTeam}
+  div
     if user
       h2 コメントする
       form(method="post" action="/comments")
@@ -20,3 +24,5 @@ block content
       a(href="http:/login") ログインしてコメントしよう！
   div
     h2 投稿一覧
+  //-
+    fixtureIdが同じcommentを表示する

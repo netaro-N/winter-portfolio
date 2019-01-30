@@ -5,6 +5,7 @@ const authenticationEnsurer = require('./authentication-ensurer');
 
 router.post('/', authenticationEnsurer, (req, res, next) => {
   console.log(req.body); // コメントを保存する実装をする
+  //req.body.fixtureId でfixtureIdを取得できる
   res.redirect('/');
 });
 
