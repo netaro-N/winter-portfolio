@@ -19,7 +19,7 @@ block content
       form(method="post" action="/comments")
         div
           textarea(name="content" rows="4")
-          input(type="hidden" name="fixtureId" value=fixtureId)
+          //- input(type="hidden" name="fixtureId" value=fixtureId)←index.jsからrenderされたもの
         button(type="submit") 投稿
     else
       a(href="http:/login") ログインしてコメントしよう！
