@@ -10,6 +10,7 @@ const Fixture = loader.database.define('fixtures', {
   },
   roundNumber: {
     type: Sequelize.INTEGER,
+    autoIncrement:true,
     allowNull:false
   },
   fixtureDate: {//19/09/2018 21:00
