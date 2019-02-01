@@ -3,11 +3,14 @@ const loader = require('./sequelize-loader');
 const Sequelize = loader.Sequelize;
 
 const Fixture = loader.database.define('fixtures', {
-  fixtureId: {//連番
-    type: Sequelize.INTEGER,
+  fixtureId: {//連番→ユニークユーザーIDに変更
+    type: Sequelize.UUID,
     primaryKey: true,
-    autoIncrement:true,
     allowNull: false
+  },
+  roundNumber: {
+    type: Sequelize.INTEGER,
+    allowNull:false
   },
   fixtureDate: {//19/09/2018 21:00
     type: Sequelize.DATE,
